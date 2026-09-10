@@ -2,7 +2,7 @@ import React from 'react';
 import { CheckCircle2, ShieldAlert, Target, RefreshCw } from 'lucide-react';
 import { PROFILE_DATA } from '../data/profileData';
 
-export const Metrics: React.FC = () => {
+export const Metrics = () => {
   const metricIcons = [
     <CheckCircle2 key="1" className="w-5 h-5 text-emerald-400" />,
     <ShieldAlert key="2" className="w-5 h-5 text-amber-400" />,
@@ -30,11 +30,16 @@ export const Metrics: React.FC = () => {
                 <span className="text-3xl sm:text-4xl font-extrabold text-white group-hover:text-emerald-300 transition-colors font-mono tracking-tight">
                   {metric.value}
                 </span>
+
                 <div className="p-2 rounded-xl bg-slate-800/80 border border-slate-700/50">
                   {metricIcons[index % metricIcons.length]}
                 </div>
               </div>
-              <h4 className="text-sm font-semibold text-slate-200">{metric.label}</h4>
+
+              <h4 className="text-sm font-semibold text-slate-200">
+                {metric.label}
+              </h4>
+
               <p className="text-xs text-slate-400 mt-1 leading-snug">
                 {metric.detail}
               </p>
