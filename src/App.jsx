@@ -15,11 +15,13 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-emerald-500/20 selection:text-emerald-300">
+      
       {/* Navigation */}
       <Navbar onOpenResume={() => setResumeModalOpen(true)} />
 
       {/* Main Content Sections */}
       <main className="flex-grow">
+        
         {/* Hero Section */}
         <Hero onOpenResume={() => setResumeModalOpen(true)} />
 

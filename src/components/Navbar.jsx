@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Mail, Phone, ExternalLink, Menu, X, FileText, CheckCircle2 } from 'lucide-react';
+import {
+  Mail,
+  Phone,
+  ExternalLink,
+  Menu,
+  X,
+  FileText,
+  CheckCircle2,
+} from 'lucide-react';
 import { PROFILE_DATA } from '../data/profileData';
 
-interface NavbarProps {
-  onOpenResume: () => void;
-}
-
-export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
+export const Navbar = ({ onOpenResume }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -14,7 +18,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
+
     window.addEventListener('scroll', handleScroll);
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -38,6 +44,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
+
           {/* Brand */}
           <a
             href="#overview"
@@ -47,16 +54,19 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
             <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-400 flex items-center justify-center font-bold text-slate-950 shadow-md shadow-emerald-500/20 group-hover:scale-105 transition-transform duration-200">
               SP
             </div>
+
             <div>
               <div className="flex items-center gap-2">
                 <span className="font-bold tracking-tight text-white group-hover:text-emerald-400 transition-colors">
                   {PROFILE_DATA.name}
                 </span>
+
                 <span className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                   Open to QA Roles
                 </span>
               </div>
+
               <p className="text-xs text-slate-400 font-mono tracking-wide">
                 Software QA Engineer
               </p>
@@ -86,6 +96,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
               <FileText className="w-4 h-4 text-emerald-400" />
               <span>Resume PDF</span>
             </button>
+
             <a
               id="nav-hire-btn"
               href="#contact"
@@ -103,17 +114,23 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
             className="lg:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
             aria-label="Toggle navigation menu"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </button>
         </div>
 
         {/* Mobile Dropdown */}
         {mobileMenuOpen && (
           <div className="lg:hidden mt-3 pt-3 pb-4 border-t border-slate-800/80 flex flex-col gap-1.5 bg-slate-950/95 rounded-2xl p-4 shadow-xl border border-slate-800">
+
             <div className="mb-2 flex items-center gap-2 px-2 py-1 rounded bg-emerald-500/10 text-emerald-400 text-xs font-medium border border-emerald-500/20">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
               {PROFILE_DATA.availability}
             </div>
+
             {navLinks.map((link) => (
               <a
                 key={link.label}
@@ -124,7 +141,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
                 {link.label}
               </a>
             ))}
+
             <div className="pt-3 mt-2 border-t border-slate-800 flex flex-col gap-2">
+
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
@@ -135,6 +154,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
                 <FileText className="w-4 h-4 text-emerald-400" />
                 View / Print Resume
               </button>
+
               <a
                 href="#contact"
                 onClick={() => setMobileMenuOpen(false)}
@@ -143,6 +163,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
                 <CheckCircle2 className="w-4 h-4" />
                 Get in Touch
               </a>
+
             </div>
           </div>
         )}
