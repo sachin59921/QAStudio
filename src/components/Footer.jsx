@@ -1,8 +1,15 @@
 import React from 'react';
-import { ArrowUp, Mail, Phone, MapPin, Linkedin, Globe, ShieldCheck } from 'lucide-react';
+import {
+  ArrowUp,
+  Mail,
+  Phone,
+  Linkedin,
+  Globe,
+  ShieldCheck,
+} from 'lucide-react';
 import { PROFILE_DATA } from '../data/profileData';
 
-export const Footer: React.FC = () => {
+export const Footer = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -16,13 +23,16 @@ export const Footer: React.FC = () => {
               <div className="w-8 h-8 rounded-lg bg-emerald-500 text-slate-950 font-bold flex items-center justify-center text-sm shadow-md">
                 SP
               </div>
+
               <span className="font-bold text-white text-base">
                 {PROFILE_DATA.name}
               </span>
+
               <span className="text-xs text-emerald-400 font-mono">
                 • {PROFILE_DATA.title}
               </span>
             </div>
+
             <p className="text-xs text-slate-500 mt-1 max-w-md">
               {PROFILE_DATA.tagline}
             </p>
@@ -36,6 +46,7 @@ export const Footer: React.FC = () => {
             >
               <Mail className="w-4 h-4" />
             </a>
+
             <a
               href={`tel:${PROFILE_DATA.phone}`}
               className="p-2 rounded-lg bg-slate-900 border border-slate-800 hover:text-teal-400 hover:border-teal-500/40 transition-colors"
@@ -43,6 +54,7 @@ export const Footer: React.FC = () => {
             >
               <Phone className="w-4 h-4" />
             </a>
+
             <a
               href={PROFILE_DATA.linkedin}
               target="_blank"
@@ -52,6 +64,7 @@ export const Footer: React.FC = () => {
             >
               <Linkedin className="w-4 h-4" />
             </a>
+
             <a
               href={PROFILE_DATA.portfolio}
               target="_blank"
@@ -61,6 +74,7 @@ export const Footer: React.FC = () => {
             >
               <Globe className="w-4 h-4" />
             </a>
+
             <button
               onClick={scrollToTop}
               className="p-2 rounded-lg bg-slate-900 border border-slate-800 hover:text-white hover:bg-slate-800 transition-colors cursor-pointer"
@@ -76,8 +90,10 @@ export const Footer: React.FC = () => {
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
             <span>"{PROFILE_DATA.philosophy}"</span>
           </p>
+
           <p>
-            {PROFILE_DATA.location} • Available for On-site, Hybrid &amp; Remote roles
+            {PROFILE_DATA.location} • Available for On-site, Hybrid &amp;
+            Remote roles
           </p>
         </div>
       </div>
